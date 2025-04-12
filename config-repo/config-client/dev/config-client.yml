@@ -1,0 +1,35 @@
+application:
+  name: Config Client Application
+  description: Spring Cloud Config Client for Development Environment
+  environment: dev
+  database:
+    url: jdbc:mysql://dev-db.example.com:3306/devdb
+    username: dev_user
+    password: dev_password
+    maxPoolSize: 20
+    minIdle: 5
+    connectionTimeout: 30000
+    showSql: true
+  security:
+    tokenSecret: dev-secret-key-123456789
+    tokenExpirationMs: 86400000
+    allowedOrigins: http://localhost:3000,http://dev.example.com
+    enableCsrf: false
+  cache:
+    enabled: true
+    timeToLiveSeconds: 3600
+    maxSize: 1000
+  integration:
+    apiUrl: https://dev-api.example.com/v1
+    timeout: 5000
+    maxRetries: 3
+    enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.example: DEBUG
+    org.springframework: INFO
+
+server:
+  port: 8080

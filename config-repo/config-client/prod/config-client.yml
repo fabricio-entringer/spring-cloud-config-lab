@@ -1,0 +1,35 @@
+application:
+  name: Config Client Application
+  description: Spring Cloud Config Client for Production Environment
+  environment: prod
+  database:
+    url: jdbc:mysql://prod-db.example.com:3306/proddb
+    username: prod_user
+    password: prod_password_very_secure
+    maxPoolSize: 50
+    minIdle: 10
+    connectionTimeout: 20000
+    showSql: false
+  security:
+    tokenSecret: prod-very-secure-token-key-9876543210
+    tokenExpirationMs: 43200000
+    allowedOrigins: https://app.example.com,https://admin.example.com
+    enableCsrf: true
+  cache:
+    enabled: true
+    timeToLiveSeconds: 7200
+    maxSize: 5000
+  integration:
+    apiUrl: https://api.example.com/v1
+    timeout: 3000
+    maxRetries: 5
+    enabled: true
+
+logging:
+  level:
+    root: WARN
+    com.example: INFO
+    org.springframework: WARN
+
+server:
+  port: 8080

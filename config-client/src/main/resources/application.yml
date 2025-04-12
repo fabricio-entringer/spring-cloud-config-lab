@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    refresh:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+    com.example.configclient: INFO
+
+application:
+  name: Default Application
+  description: Default configuration loaded when Config Server is not available
+  environment: local
+  database:
+    url: jdbc:h2:mem:localdb
+    username: sa
+    password: password
+    maxPoolSize: 10
+    minIdle: 5
+    connectionTimeout: 30000
+    showSql: true
+  security:
+    tokenSecret: defaultSecret123
+    tokenExpirationMs: 86400000
+    allowedOrigins: http://localhost:3000
+    enableCsrf: false
+  cache:
+    enabled: true
+    timeToLiveSeconds: 3600
+    maxSize: 1000
+  integration:
+    apiUrl: http://localhost:9090/api
+    timeout: 5000
+    maxRetries: 3
+    enabled: true
