@@ -1,21 +1,21 @@
-# Spring Cloud Config Lab
+# 🌩️ Spring Cloud Config Lab
 
 This repository demonstrates a complete Spring Cloud Config setup with both server and client components. It provides centralized configuration management with support for multiple environments (dev, prod, test).
 
-## Project Structure
+## 🏗️ Project Structure
 
 - **config-server**: Spring Cloud Config Server that serves configuration files from GitHub
 - **config-client**: Spring Boot application that consumes configuration from the Config Server
 - **config-repo**: Repository of configuration files organized by application and environment
 
-## Technology Stack
+## 🚀 Technology Stack
 
 - Java 17
 - Spring Boot 3.2.3
 - Spring Cloud 2023.0.0
 - Maven
 
-## Features
+## ✨ Features
 
 - Centralized configuration management using Spring Cloud Config
 - Multiple environment support (dev, prod, test)
@@ -25,7 +25,7 @@ This repository demonstrates a complete Spring Cloud Config setup with both serv
 - Dynamic configuration refresh
 - REST API to query configuration properties
 
-## Getting Started
+## 🚦 Getting Started
 
 ### Prerequisites
 
@@ -71,7 +71,7 @@ The Config Server will start on port 8888 and will serve configurations from the
 
 The Config Client will start on port 8080 and fetch its configuration from the Config Server.
 
-## API Endpoints
+## 🔌 API Endpoints
 
 The Config Client exposes the following REST endpoints:
 
@@ -82,7 +82,7 @@ The Config Client exposes the following REST endpoints:
 - **GET /api/config/cache**: Returns cache configuration
 - **GET /api/config/integration**: Returns integration configuration
 
-## Configuration Properties
+## ⚙️ Configuration Properties
 
 The application uses a comprehensive set of configuration properties:
 
@@ -117,19 +117,32 @@ The application uses a comprehensive set of configuration properties:
 - `application.integration.maxRetries`: Maximum number of retry attempts
 - `application.integration.enabled`: Whether integration is enabled
 
-## Future Enhancements
+## 🔄 Configuration Refresh
+
+The Config Client supports dynamic configuration refresh without requiring a restart:
+
+1. Make changes to your configuration files in the config-repo
+2. Push changes to the GitHub repository
+3. Trigger a refresh by sending a POST request to the client's refresh endpoint:
+   ```
+   curl -X POST http://localhost:8080/actuator/refresh
+   ```
+
+## 🔮 Future Enhancements
 
 1. Add support for additional configuration backends:
-   - File System
-   - Database
-   - Vault
-   - Consul
+   - 📁 File System
+   - 🗄️ Database
+   - 🔐 Vault
+   - 🔍 Consul
 
 2. Implement encryption/decryption for sensitive properties
 3. Add Spring Cloud Bus for broadcast configuration changes
 4. Implement circuit breaker for improved resilience
+5. Add Docker support for containerized deployment
+6. Implement monitoring with Prometheus and Grafana
 
-## Profiles
+## 🌐 Profiles
 
 This project includes configuration for three environments:
 
@@ -137,19 +150,36 @@ This project includes configuration for three environments:
 2. **prod**: Production environment with optimized settings for performance and security
 3. **test**: Testing environment with settings suitable for automated testing
 
-## Security Considerations
+## 🔒 Security Considerations
 
 - The Config Server uses Basic Authentication to secure access
 - Sensitive properties should be encrypted in production
 - Access to the Config Server should be restricted to internal networks in production
+- Consider using HTTPS for all communication in production environments
+- Rotate secrets and credentials regularly
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 - If the Config Client fails to start, ensure the Config Server is running
 - Check the connection settings in bootstrap.yml
 - Verify that the configuration files exist in the Git repository
-- Enable debug logging for more detailed information
+- Enable debug logging for more detailed information:
+  ```
+  logging.level.org.springframework.cloud.config=DEBUG
+  ```
+- Check server logs for any connection or authentication issues
+- Verify network connectivity between client and server
 
-## License
+## 📖 Additional Resources
+
+- [Spring Cloud Config Documentation](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/)
+- [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [Spring Cloud Documentation](https://docs.spring.io/spring-cloud/docs/current/reference/html/)
+
+## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Contributors
+
+- Fabricio Entringer

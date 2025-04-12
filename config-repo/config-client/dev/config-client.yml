@@ -28,7 +28,7 @@ application:
 logging:
   level:
     root: INFO
-    com.example: DEBUG
+    dev.entringer: DEBUG
     org.springframework: INFO
 
 server:

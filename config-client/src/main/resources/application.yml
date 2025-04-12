@@ -15,7 +15,7 @@ management:
 logging:
   level:
     org.springframework.cloud.config: DEBUG
-    com.example.configclient: INFO
+    dev.entringer.configclient: INFO
 
 application:
   name: Default Application

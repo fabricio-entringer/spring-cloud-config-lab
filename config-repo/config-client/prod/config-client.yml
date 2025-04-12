@@ -28,7 +28,7 @@ application:
 logging:
   level:
     root: WARN
-    com.example: INFO
+    dev.entringer: INFO
     org.springframework: WARN
 
 server:

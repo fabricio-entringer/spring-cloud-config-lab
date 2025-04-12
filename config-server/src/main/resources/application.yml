@@ -10,12 +10,16 @@ spring:
         git:
           uri: https://github.com/fabricio-entringer/spring-cloud-config-lab
           search-paths: config-repo/{application}/{profile}
-          default-label: main
+          default-label: master
           clone-on-start: true
+        native:
+          search-locations: classpath:/,file:./config-repo/{application}/{profile}
   security:
     user:
       name: admin
       password: config-server-password
+  profiles:
+    active: native  # Use native profile for local development
 
 management:
   endpoints:
@@ -35,36 +39,15 @@ spring:
   config:
     activate:
       on-profile: dev
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/fabricio-entringer/spring-cloud-config-lab
-          search-paths: config-repo/{application}/dev
-          default-label: main
 
 ---
 spring:
   config:
     activate:
       on-profile: prod
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/fabricio-entringer/spring-cloud-config-lab
-          search-paths: config-repo/{application}/prod
-          default-label: main
 
 ---
 spring:
   config:
     activate:
       on-profile: test
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/fabricio-entringer/spring-cloud-config-lab
-          search-paths: config-repo/{application}/test
-          default-label: main
