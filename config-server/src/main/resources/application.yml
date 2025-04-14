@@ -1,6 +1,10 @@
 server:
   port: 8888
 
+info:
+  app:
+    version: "@project.version@"
+
 spring:
   application:
     name: config-server
@@ -29,6 +33,9 @@ management:
   endpoint:
     health:
       show-details: always
+  info:
+    env:
+      enabled: true
 
 logging:
   level:
