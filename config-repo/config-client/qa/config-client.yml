@@ -1,26 +1,26 @@
 application:
   name: Config Client Application
-  description: Spring Cloud Config Client for Test Environment
-  environment: test
+  description: Spring Cloud Config Client for QA Environment
+  environment: qa
   database:
-    url: jdbc:mysql://test-db.example.com:3306/testdb
-    username: test_user
-    password: test_password
+    url: jdbc:mysql://qa-db.example.com:3306/qadb
+    username: qa_user
+    password: qa_password
     maxPoolSize: 10
     minIdle: 2
     connectionTimeout: 30000
     showSql: true
   security:
-    tokenSecret: test-secret-key-abcdefg
+    tokenSecret: qa-secret-key-abcdefg
     tokenExpirationMs: 86400000
-    allowedOrigins: http://localhost:3000,http://test.example.com
+    allowedOrigins: http://localhost:3000,http://qa.example.com
     enableCsrf: false
   cache:
     enabled: true
     timeToLiveSeconds: 300
     maxSize: 500
   integration:
-    apiUrl: https://test-api.example.com/v1
+    apiUrl: https://qa-api.example.com/v1
     timeout: 10000
     maxRetries: 3
     enabled: true
