@@ -31,46 +31,16 @@ The project demonstrates a complete microservice configuration pattern where:
 
 ## 🚀 Technology Stack
 
-- **Java 17**
-  - Latest LTS version with improved performance and modern language features
-  - Supports sealed classes, records, and enhanced switch expressions for cleaner code
-
-- **Spring Boot 3.2.3**
-  - Provides auto-configuration and embedded server capabilities
-  - Simplifies dependency management and application bootstrapping
-  - Includes production-ready features like health checks and metrics
-
-- **Spring Cloud 2023.0.0**
-  - Comprehensive framework for building cloud-native applications
-  - Enables distributed system patterns for microservices architecture
-
-- **Spring Cloud Config Server**
-  - Centralizes configuration management across multiple services and environments
-  - Supports versioning through Git backend integration
-
-- **Spring Boot Actuator**
-  - Adds production-ready features for monitoring and managing the application
-  - Provides endpoints for health checks, metrics, and configuration refresh
-
-- **Spring Web**
-  - Supports building RESTful web services
-  - Includes Spring MVC for creating web controllers
-
-- **Spring Security** (optional)
-  - Secures the Config Server with authentication and authorization
-  - Protects sensitive configuration data
-
-- **Jackson Databind**
-  - Handles JSON serialization and deserialization
-  - Used for converting configuration objects to JSON responses
-
-- **Lombok**
-  - Reduces boilerplate code through annotations
-  - Simplifies model classes with automatic getters, setters, and constructors
-
-- **Maven**
-  - Build automation and dependency management tool
-  - Provides consistent, reproducible builds with defined project structure
+- **Java 17**: Latest LTS version with improved performance and modern language features
+- **Spring Boot 3.2.3**: Auto-configuration and embedded server capabilities
+- **Spring Cloud 2023.0.0**: Framework for building cloud-native applications
+- **Spring Cloud Config Server**: Centralizes configuration management across multiple environments
+- **Spring Boot Actuator**: Production-ready features for monitoring and management
+- **Spring Web**: Support for building RESTful web services
+- **Spring Security** (optional): Authentication and authorization for configuration security
+- **Jackson Databind**: JSON serialization and deserialization
+- **Lombok**: Reduces boilerplate code through annotations
+- **Maven**: Build automation and dependency management tool
 
 ## ✨ Features
 
