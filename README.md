@@ -31,8 +31,6 @@ The project demonstrates a complete microservice configuration pattern where:
 
 ## 🚀 Technology Stack
 
-## 🚀 Technology Stack
-
 - **Java 17**
   - Latest LTS version with improved performance and modern language features
   - Supports sealed classes, records, and enhanced switch expressions for cleaner code
