@@ -5,15 +5,74 @@ This repository demonstrates a complete Spring Cloud Config setup with both serv
 ## 🏗️ Project Structure
 
 - **config-server**: Spring Cloud Config Server that serves configuration files from GitHub
+  - Main class: `ConfigServerApplication.java` - initializes the Config Server with `@EnableConfigServer`
+  - Configuration in `application.yml` specifies GitHub repository location and server port (8888)
+  - Responsible for serving configuration properties to all client applications
+  - Supports multiple environments through profile-specific configuration files
+
 - **config-client**: Spring Boot application that consumes configuration from the Config Server
+  - Main class: `ConfigClientApplication.java` - bootstraps the client application
+  - `bootstrap.yml` - contains Config Server connection details and application name
+  - `JacksonConfig.java` - configures JSON serialization for configuration properties
+  - `ConfigController.java` - REST endpoints to retrieve and display configuration values
+  - `ApplicationConfig.java` - configuration properties model with nested objects for different categories
+  - `ApplicationConfigDTO.java` - data transfer object for exposing configurations via API
+
 - **config-repo**: Repository of configuration files organized by application and environment
+  - Structure follows Spring Cloud Config convention: `/{application}/{profile}/{label}`
+  - Contains environment-specific configurations (dev/prod/test) for each application
+  - Each YAML file (`config-client.yml`) contains the same property structure with environment-specific values
+  - Changes to these files can be dynamically applied to running applications via refresh mechanism
+
+The project demonstrates a complete microservice configuration pattern where:
+1. The Config Server centralizes all configuration management
+2. The Config Client shows how applications can consume external configuration
+3. The Config Repo organizes configurations in a version-controlled, environment-specific way
 
 ## 🚀 Technology Stack
 
-- Java 17
-- Spring Boot 3.2.3
-- Spring Cloud 2023.0.0
-- Maven
+## 🚀 Technology Stack
+
+- **Java 17**
+  - Latest LTS version with improved performance and modern language features
+  - Supports sealed classes, records, and enhanced switch expressions for cleaner code
+
+- **Spring Boot 3.2.3**
+  - Provides auto-configuration and embedded server capabilities
+  - Simplifies dependency management and application bootstrapping
+  - Includes production-ready features like health checks and metrics
+
+- **Spring Cloud 2023.0.0**
+  - Comprehensive framework for building cloud-native applications
+  - Enables distributed system patterns for microservices architecture
+
+- **Spring Cloud Config Server**
+  - Centralizes configuration management across multiple services and environments
+  - Supports versioning through Git backend integration
+
+- **Spring Boot Actuator**
+  - Adds production-ready features for monitoring and managing the application
+  - Provides endpoints for health checks, metrics, and configuration refresh
+
+- **Spring Web**
+  - Supports building RESTful web services
+  - Includes Spring MVC for creating web controllers
+
+- **Spring Security** (optional)
+  - Secures the Config Server with authentication and authorization
+  - Protects sensitive configuration data
+
+- **Jackson Databind**
+  - Handles JSON serialization and deserialization
+  - Used for converting configuration objects to JSON responses
+
+- **Lombok**
+  - Reduces boilerplate code through annotations
+  - Simplifies model classes with automatic getters, setters, and constructors
+
+- **Maven**
+  - Build automation and dependency management tool
+  - Provides consistent, reproducible builds with defined project structure
 
 ## ✨ Features
 
